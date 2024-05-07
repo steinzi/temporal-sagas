@@ -1,17 +1,17 @@
 [tool.poetry]
-name = "comma"
-version = "0.1.0"
+name = "Saga"
+version = "0.1.1"
 description = ""
 authors = ["Patrick Rachford <prachford@icloud.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.11"
-ruff = "^0.0.246"
-flask = {extras = ["async"], version = "^2.2.3"}
+ruff = "^0.4.3"
+flask = {extras = ["async"], version = "^3.0.3"}
 
 [tool.poetry.group.dev.dependencies]
-temporalio = "^1.1.0"
+temporalio = "^1.5.0"
 
 [build-system]
 requires = ["poetry-core"]
@@ -23,6 +23,6 @@ lint = [{cmd = "ruff check ./*.py"}]
 
 
 [tool.ruff]
-select = ["E", "F"]
+lint.select = ["E", "F"]
 line-length = 120
 fix = true

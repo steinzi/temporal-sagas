@@ -1,4 +1,3 @@
-import asyncio
 from datetime import timedelta
 
 from temporalio import workflow
@@ -22,7 +21,7 @@ class BookWorkflow:
                 start_to_close_timeout=timedelta(seconds=10),
                 retry_policy=RetryPolicy(
                     non_retryable_error_types=["Exception"],
-                ),                  
+                ),
             )
             compensations.append("undo_book_hotel")
             output += " " + await workflow.execute_activity(
@@ -31,7 +30,7 @@ class BookWorkflow:
                 start_to_close_timeout=timedelta(seconds=10),
                 retry_policy=RetryPolicy(
                     non_retryable_error_types=["Exception"],
-                ),                
+                ),
             )
 
             compensations.append("undo_book_flight")
